@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot'
+}
+
+group 'com.jh'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = true
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    testRuntimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+
+    // querydsl
+    implementation "com.querydsl:querydsl-jpa:4.4.0"
+    implementation "com.querydsl:querydsl-core:4.4.0"
+    annotationProcessor("com.querydsl:querydsl-apt:4.4.0:jpa")
+    testImplementation "com.querydsl:querydsl-jpa:4.4.0"
+    testAnnotationProcessor("com.querydsl:querydsl-apt:4.4.0:jpa")
+}
+
+def generated = 'src/main/generated'
+
+clean {
+    delete file(generated)
+}
+
+task cleanGeneratedDir(type: Delete) {
+    delete file(generated)
+}
