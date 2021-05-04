@@ -1,1 +1,5 @@
 rootProject.name = 'project'
+include 'api'
+include 'core'
+include 'admin'
+
