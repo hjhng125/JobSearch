@@ -1,6 +1,6 @@
 package com.jh.project.account;
 
-import com.jh.project.account.repository.AccountRepository;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ public class AccountService {
 
     private final AccountRepository accountRepository;
 
-    public void test() {
-
+    public List<Account> findAll() {
+        return accountRepository.getClass().;
     }
 }
