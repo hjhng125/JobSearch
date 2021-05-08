@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: myDB
+    environment:
+      - MYSQL_DATABASE=JobSearch
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+    volumes:
+      - ./init/:/docker-entrypoint-initdb.d/
+    ports:
+      - 3306:3306
