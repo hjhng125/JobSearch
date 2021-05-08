@@ -1,18 +1,29 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot'
-    id 'org.asciidoctor.convert'
+    id 'org.asciidoctor.convert' version '1.5.3'
 }
 
-group 'com.jh'
-version '0.0.1-SNAPSHOT'
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}
+
+bootJar { // SpringBoot 1.5 이하일 경우 jar
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation project(':core')
+    implementation project(':common')
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -24,10 +35,4 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-}
-
-
-asciidoctor {
-    inputs.dir snippetsDir
-    dependsOn test
 }
