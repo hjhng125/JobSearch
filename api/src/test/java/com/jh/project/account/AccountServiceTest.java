@@ -16,4 +16,10 @@ class AccountServiceTest {
         List<Account> all = accountService.findAll();
         System.out.println(all);
     }
+
+    @Test
+    void find_account_by_id_test() {
+        Account account = accountService.findById(1L);
+        System.out.println(account);
+    }
 }
