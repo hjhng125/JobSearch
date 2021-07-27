@@ -41,6 +41,10 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-web'
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
+        implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        testImplementation 'org.springframework.security:spring-security-test'
+
         // mapstruct
         implementation("org.mapstruct:mapstruct:1.4.2.Final")
         annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
@@ -48,6 +52,7 @@ subprojects {
         // lombok
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
+        implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }

@@ -1,7 +1,5 @@
 package com.jh.project.account;
 
-import static com.jh.project.config.DataSourceConfig.TX_MANAGER;
-
 import com.jh.project.exception.ErrorMessage;
 import com.jh.project.exception.UserGuideException;
 import java.util.List;
@@ -27,7 +25,7 @@ public class AccountService {
     }
 
     //TODO 계정 중복 체크
-    @Transactional(TX_MANAGER)
+    @Transactional
     public Account join(Account account) {
         return accountRepository.save(account);
     }

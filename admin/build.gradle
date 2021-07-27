@@ -11,8 +11,5 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    testImplementation 'org.springframework.security:spring-security-test'
-
     implementation 'de.codecentric:spring-boot-admin-starter-server:2.4.0'
 }

@@ -11,7 +11,7 @@ class BaseEntityTest {
     void builder_test() {
         Account account = Account.builder()
             .email("hjhng125@nate.com")
-            .userName("hjhng")
+            .name("hjhng")
             .password("1234")
             .build();
 
@@ -19,7 +19,7 @@ class BaseEntityTest {
 
         assertThat(account).isNotNull();
         assertThat(account.getEmail()).isEqualTo("hjhng125@nate.com");
-        assertThat(account.getUserName()).isEqualTo("hjhng");
+        assertThat(account.getName()).isEqualTo("hjhng");
         assertThat(account.getPassword()).isEqualTo("1234");
     }
 }

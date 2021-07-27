@@ -38,7 +38,7 @@ class AccountServiceTest {
         // given
         Account account = Account.builder()
             .email("test@nate.com")
-            .userName("test")
+            .name("test")
             .password("test")
             .build();
 
@@ -48,7 +48,7 @@ class AccountServiceTest {
 
         // then
         assertThat(join.getEmail()).isEqualTo("test@nate.com");
-        assertThat(join.getUserName()).isEqualTo("test");
+        assertThat(join.getName()).isEqualTo("test");
 
     }
 }
