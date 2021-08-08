@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: auth-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: api
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/api/**
+      - id: admin
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/admin/**
+server:
+  port: 8080
