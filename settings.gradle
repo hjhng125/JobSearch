@@ -1,0 +1,6 @@
+rootProject.name = 'JobSearch'
+include 'module-core'
+include 'module-auth-gateway'
+include 'module-admin'
+include 'module-api'
+
